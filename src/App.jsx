@@ -1,0 +1,30 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { UserProgressProvider } from './context/UserProgressContext';
+import { Navbar } from './components/layout/Navbar';
+import { Footer } from './components/layout/Footer';
+import { HomePage } from './pages/HomePage';
+import { TopicPage } from './pages/TopicPage';
+import { QuestionBankPage } from './pages/QuestionBankPage';
+import { RevisionPage } from './pages/RevisionPage';
+
+export default function App() {
+  return (
+    <UserProgressProvider>
+      <Router>
+        <div className="min-h-screen bg-slate-950 text-slate-100 font-sans flex flex-col selection:bg-indigo-600 selection:text-white">
+          <Navbar />
+          <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/topic/:topicSlug" element={<TopicPage />} />
+              <Route path="/questions" element={<QuestionBankPage />} />
+              <Route path="/revision" element={<RevisionPage />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </UserProgressProvider>
+  );
+}
