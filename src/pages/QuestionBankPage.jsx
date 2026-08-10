@@ -18,7 +18,7 @@ export function QuestionBankPage() {
   const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [sortBy, setSortBy] = useState('importance');
 
-  // Extract unique patterns
+  // Extract unique patterns  
   const patterns = useMemo(() => {
     const set = new Set();
     allQuestions.forEach(q => {
