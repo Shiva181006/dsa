@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from 'react';
-import { Layers, Search, Filter, CheckCircle2, Award } from 'lucide-react';
+import { Layers, Search, Filter, CheckCircle2 } from 'lucide-react';
 import { QuestionCard } from '../question/QuestionCard';
 import { useUserProgress } from '../../context/UserProgressContext';
 
-export function SectionQuestions({ questions, topicTitle }) {
+export function SectionQuestions({ questions }) {
   const { progress } = useUserProgress();
-  const [activeTab, setActiveTab] = useState('All'); // 'All' | 'Easy' | 'Medium' | 'Hard' | 'Solved' | 'Revision'
+  const [activeTab, setActiveTab] = useState('All');
   const [selectedPattern, setSelectedPattern] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('order'); // 'order' | 'title' | 'importance' | 'frequency'
+  const [sortBy, setSortBy] = useState('order');
 
   // Extract unique patterns
   const patterns = useMemo(() => {
@@ -31,17 +31,14 @@ export function SectionQuestions({ questions, topicTitle }) {
     return questions.filter(q => {
       const qState = progress[q.id]?.status || 'unsolved';
 
-      // Tab Filter
       if (activeTab === 'Easy' && q.difficulty !== 'Easy') return false;
       if (activeTab === 'Medium' && q.difficulty !== 'Medium') return false;
       if (activeTab === 'Hard' && q.difficulty !== 'Hard') return false;
       if (activeTab === 'Solved' && qState !== 'solved' && qState !== 'revision') return false;
       if (activeTab === 'Revision' && qState !== 'revision') return false;
 
-      // Pattern Filter
       if (selectedPattern !== 'All' && q.pattern !== selectedPattern) return false;
 
-      // Search Query Filter
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase();
         const matchesTitle = q.title.toLowerCase().includes(query);
@@ -64,40 +61,40 @@ export function SectionQuestions({ questions, topicTitle }) {
   return (
     <section className="space-y-6 text-left" id="question-bank">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#DDD6C8] pb-4">
         <div>
-          <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
-            <Layers className="w-6 h-6 text-indigo-400" />
-            Curated 60 Selected Problems & Algorithmic Patterns
+          <h2 className="text-xl font-bold text-[#20251F] flex items-center gap-2">
+            <Layers className="w-5 h-5 text-[#C88719]" />
+            SECTION 10 — Curated 60 Selected Problems & Patterns
           </h2>
-          <p className="text-sm text-slate-400 mt-1">
+          <p className="text-xs text-[#687066] mt-1">
             Carefully structured learning progression across Easy (20), Medium (20), and Hard (20) interview problems.
           </p>
         </div>
 
         {/* Progress Badge */}
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono">
-          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-          <span className="text-slate-300">Topic Progress:</span>
-          <span className="text-emerald-400 font-bold">{solvedCount} / {questions.length}</span>
-          <span className="text-slate-400">({Math.round((solvedCount / questions.length) * 100)}%)</span>
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#F1F5F1] border border-[#BAC7BA] text-xs font-mono">
+          <CheckCircle2 className="w-4 h-4 text-[#526B52]" />
+          <span className="text-[#687066]">Topic Progress:</span>
+          <span className="text-[#526B52] font-bold">{solvedCount} / {questions.length}</span>
+          <span className="text-[#687066]">({Math.round((solvedCount / questions.length) * 100)}%)</span>
         </div>
       </div>
 
       {/* Tabs Row */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-slate-800 pb-3">
+      <div className="flex flex-wrap items-center gap-2 border-b border-[#DDD6C8] pb-3 font-mono">
         {[
-          { id: 'All', label: `All 60 Problems` },
-          { id: 'Easy', label: `Easy (${easyCount})` },
-          { id: 'Medium', label: `Medium (${mediumCount})` },
-          { id: 'Hard', label: `Hard (${hardCount})` },
-          { id: 'Solved', label: `Solved (${solvedCount})` },
-          { id: 'Revision', label: `Needs Revision (${revisionCount})` }
+          { id: 'All', label: `All 60 Problems`, style: activeTab === 'All' ? 'bg-[#C88719] text-[#FFFCF5] border-[#C88719]' : 'bg-[#EFE9DD] text-[#687066] border-[#DDD6C8]' },
+          { id: 'Easy', label: `Easy (${easyCount})`, style: activeTab === 'Easy' ? 'bg-[#526B52] text-[#FFFCF5] border-[#526B52]' : 'bg-[#EFE9DD] text-[#687066] border-[#DDD6C8]' },
+          { id: 'Medium', label: `Medium (${mediumCount})`, style: activeTab === 'Medium' ? 'bg-[#C88719] text-[#FFFCF5] border-[#C88719]' : 'bg-[#EFE9DD] text-[#687066] border-[#DDD6C8]' },
+          { id: 'Hard', label: `Hard (${hardCount})`, style: activeTab === 'Hard' ? 'bg-[#A94F35] text-[#FFFCF5] border-[#A94F35]' : 'bg-[#EFE9DD] text-[#687066] border-[#DDD6C8]' },
+          { id: 'Solved', label: `Solved (${solvedCount})`, style: activeTab === 'Solved' ? 'bg-[#526B52] text-[#FFFCF5] border-[#526B52]' : 'bg-[#EFE9DD] text-[#687066] border-[#DDD6C8]' },
+          { id: 'Revision', label: `Needs Revision (${revisionCount})`, style: activeTab === 'Revision' ? 'bg-[#A94F35] text-[#FFFCF5] border-[#A94F35]' : 'bg-[#EFE9DD] text-[#687066] border-[#DDD6C8]' }
         ].map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${activeTab === tab.id ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800'}`}
+            className={`px-3 py-1.5 rounded-md text-xs font-semibold border transition-all cursor-pointer ${tab.style}`}
           >
             {tab.label}
           </button>
@@ -105,28 +102,28 @@ export function SectionQuestions({ questions, topicTitle }) {
       </div>
 
       {/* Filter & Search Toolbar */}
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800 text-xs">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-3 bg-[#FFFCF5] p-3.5 rounded-md border border-[#DDD6C8] text-xs shadow-xs font-mono">
         {/* Search */}
-        <div className="relative w-full lg:w-72">
+        <div className="relative w-full lg:w-72 font-sans">
           <input
             type="text"
-            placeholder="Search problems, patterns, companies..."
+            placeholder="Search problems, patterns..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-8 pr-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+            className="w-full pl-8 pr-3 py-1.5 rounded-md bg-[#FFFCF5] border border-[#DDD6C8] text-[#20251F] placeholder-[#687066] focus:outline-none focus:border-[#C88719] text-xs"
           />
-          <Search className="w-3.5 h-3.5 text-slate-500 absolute left-2.5 top-2.5" />
+          <Search className="w-3.5 h-3.5 text-[#687066] absolute left-2.5 top-2.5" />
         </div>
 
         <div className="flex flex-wrap items-center gap-2.5 w-full lg:w-auto">
           {/* Pattern Dropdown Filter */}
           <div className="flex items-center gap-1.5">
-            <Filter className="w-3.5 h-3.5 text-indigo-400" />
-            <span className="text-slate-300 font-medium">Filter Pattern:</span>
+            <Filter className="w-3.5 h-3.5 text-[#C88719]" />
+            <span className="text-[#687066]">Pattern:</span>
             <select
               value={selectedPattern}
               onChange={(e) => setSelectedPattern(e.target.value)}
-              className="bg-slate-950 border border-slate-800 text-indigo-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-indigo-500 font-medium"
+              className="bg-[#FFFCF5] border border-[#DDD6C8] text-[#20251F] rounded-md px-2.5 py-1.5 focus:outline-none focus:border-[#C88719] font-medium"
             >
               <option value="All">All Patterns ({patterns.length})</option>
               {patterns.map(pat => (
@@ -136,12 +133,12 @@ export function SectionQuestions({ questions, topicTitle }) {
           </div>
 
           {/* Sort Dropdown */}
-          <div className="flex items-center gap-1.5">
-            <span className="text-slate-400">Sort:</span>
+          <div className="flex items-center gap-1.5 sm:ml-auto">
+            <span className="text-[#687066]">Sort:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-slate-950 border border-slate-800 text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-indigo-500"
+              className="bg-[#FFFCF5] border border-[#DDD6C8] text-[#20251F] rounded-md px-2.5 py-1.5 focus:outline-none focus:border-[#C88719]"
             >
               <option value="order">Learning Order (#1 to #60)</option>
               <option value="importance">Interview Importance</option>
@@ -155,9 +152,9 @@ export function SectionQuestions({ questions, topicTitle }) {
       {/* Question Cards List */}
       <div className="space-y-4">
         {filteredQuestions.length === 0 ? (
-          <div className="p-12 text-center rounded-xl bg-slate-900/50 border border-slate-800 text-slate-400 space-y-2">
-            <p className="text-base font-semibold">No questions match your selected pattern or search filter.</p>
-            <p className="text-xs text-slate-500">Try clearing your search query or setting Pattern Filter to "All Patterns".</p>
+          <div className="p-10 text-center rounded-md bg-[#FFFCF5] border border-[#DDD6C8] text-[#687066] space-y-2">
+            <p className="text-sm font-bold text-[#20251F]">No questions match your selected pattern or search filter.</p>
+            <p className="text-xs">Try clearing your search query or setting Pattern Filter to "All Patterns".</p>
           </div>
         ) : (
           filteredQuestions.map(q => (

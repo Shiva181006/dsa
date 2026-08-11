@@ -1,31 +1,80 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Custom Parchment Design System Colors */
+  --color-parchment-bg: #F5F1E8;
+  --color-parchment-surface: #FFFCF5;
+  --color-parchment-alt: #EFE9DD;
+  --color-parchment-border: #DDD6C8;
+  --color-parchment-border-subtle: #E8E2D5;
+  --color-parchment-text: #20251F;
+  --color-parchment-muted: #687066;
+
+  --color-saffron: #C88719;
+  --color-saffron-hover: #B07412;
+  --color-saffron-bg: #FBF5E9;
+  --color-saffron-border: #E8CA94;
+
+  --color-moss: #526B52;
+  --color-moss-hover: #435843;
+  --color-moss-bg: #F1F5F1;
+  --color-moss-border: #BAC7BA;
+
+  --color-terracotta: #A94F35;
+  --color-terracotta-hover: #8D4029;
+  --color-terracotta-bg: #F9F1EF;
+  --color-terracotta-border: #DFC2B8;
+}
+
+:root {
+  --bg: #F5F1E8;
+  --surface: #FFFCF5;
+  --surface-alt: #EFE9DD;
+  --text: #20251F;
+  --text-muted: #687066;
+  --accent: #C88719;
+  --accent-hover: #B07412;
+  --success: #526B52;
+  --success-hover: #435843;
+  --danger: #A94F35;
+  --danger-hover: #8D4029;
+  --border: #DDD6C8;
+  --border-subtle: #E8E2D5;
+}
+
 @layer base {
   body {
-    @apply bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white min-h-screen;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
   }
 }
 
-/* Custom scrollbars */
+/* Custom Editorial Parchment Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #EFE9DD;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #DDD6C8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #687066;
 }
 
 /* Code block fonts */
 code, pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }

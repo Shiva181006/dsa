@@ -12,7 +12,7 @@ export default function App() {
   return (
     <UserProgressProvider>
       <Router>
-        <div className="min-h-screen bg-slate-950 text-slate-100 font-sans flex flex-col selection:bg-indigo-600 selection:text-white">
+        <div className="min-h-screen bg-[#F5F1E8] text-[#20251F] font-sans flex flex-col selection:bg-[#C88719] selection:text-white">
           <Navbar />
           <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <Routes>
