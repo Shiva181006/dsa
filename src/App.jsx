@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { UserProgressProvider } from './context/UserProgressContext';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -20,6 +20,7 @@ export default function App() {
               <Route path="/topic/:topicSlug" element={<TopicPage />} />
               <Route path="/questions" element={<QuestionBankPage />} />
               <Route path="/revision" element={<RevisionPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
           <Footer />
