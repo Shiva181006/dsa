@@ -20,18 +20,18 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FFFCF5] border-b border-[#DDD6C8] shadow-xs">
+    <header className="sticky top-0 z-50 bg-[#FFFFFF] border-b border-[#E2E8F0] shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-md bg-[#20251F] text-[#F5F1E8] flex items-center justify-center border border-[#20251F] group-hover:bg-[#C88719] group-hover:border-[#C88719] transition-colors">
-            <Code2 className="w-5 h-5 text-[#FFFCF5]" />
+          <div className="w-9 h-9 rounded-md bg-[#0F172A] text-[#F8FAFC] flex items-center justify-center border border-[#0F172A] group-hover:bg-[#2563EB] group-hover:border-[#2563EB] transition-colors shadow-xs">
+            <Code2 className="w-5 h-5 text-[#FFFFFF]" />
           </div>
           <div className="flex flex-col text-left">
-            <span className="font-extrabold tracking-tight text-[#20251F] group-hover:text-[#C88719] transition-colors text-base font-sans">
-              JS DSA<span className="text-[#C88719]">Prep</span>
+            <span className="font-extrabold tracking-tight text-[#0F172A] group-hover:text-[#2563EB] transition-colors text-base font-sans">
+              JS DSA<span className="text-[#2563EB]">Prep</span>
             </span>
-            <span className="text-[10px] text-[#687066] font-mono tracking-wider font-semibold">TECHNICAL NOTEBOOK</span>
+            <span className="text-[10px] text-[#64748B] font-mono tracking-wider font-semibold">TECHNICAL NOTEBOOK</span>
           </div>
         </Link>
 
@@ -39,7 +39,7 @@ export function Navbar() {
         <nav className="hidden md:flex items-center gap-1.5">
           <Link
             to="/"
-            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center gap-1.5 ${location.pathname === '/' ? 'bg-[#FBF5E9] text-[#C88719] border border-[#E8CA94]' : 'text-[#687066] hover:text-[#20251F] hover:bg-[#EFE9DD]'}`}
+            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center gap-1.5 ${location.pathname === '/' ? 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'}`}
           >
             <BookOpen className="w-3.5 h-3.5" />
             Curriculum
@@ -47,15 +47,15 @@ export function Navbar() {
 
           <Link
             to="/topic/arrays"
-            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center gap-1.5 ${location.pathname.includes('/topic/arrays') ? 'bg-[#FBF5E9] text-[#C88719] border border-[#E8CA94]' : 'text-[#687066] hover:text-[#20251F] hover:bg-[#EFE9DD]'}`}
+            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center gap-1.5 ${location.pathname.includes('/topic/arrays') ? 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'}`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#C88719]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
             Arrays (Master Reference)
           </Link>
 
           <Link
             to="/questions"
-            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center gap-1.5 ${location.pathname === '/questions' ? 'bg-[#FBF5E9] text-[#C88719] border border-[#E8CA94]' : 'text-[#687066] hover:text-[#20251F] hover:bg-[#EFE9DD]'}`}
+            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center gap-1.5 ${location.pathname === '/questions' ? 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'}`}
           >
             <Layers className="w-3.5 h-3.5" />
             Question Explorer
@@ -63,12 +63,12 @@ export function Navbar() {
 
           <Link
             to="/revision"
-            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center gap-1.5 ${location.pathname === '/revision' ? 'bg-[#FBF5E9] text-[#C88719] border border-[#E8CA94]' : 'text-[#687066] hover:text-[#20251F] hover:bg-[#EFE9DD]'}`}
+            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-colors flex items-center gap-1.5 ${location.pathname === '/revision' ? 'bg-[#FFF1F2] text-[#E11D48] border border-[#FECDD3]' : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'}`}
           >
-            <BookmarkCheck className="w-3.5 h-3.5 text-[#A94F35]" />
+            <BookmarkCheck className="w-3.5 h-3.5 text-[#E11D48]" />
             Revision
             {revisionCount > 0 && (
-              <span className="ml-1 px-1.5 py-0.5 rounded-md bg-[#A94F35] text-[#FFFCF5] text-[10px] font-bold font-mono">
+              <span className="ml-1 px-1.5 py-0.5 rounded-md bg-[#E11D48] text-[#FFFFFF] text-[10px] font-bold font-mono">
                 {revisionCount}
               </span>
             )}
@@ -83,18 +83,18 @@ export function Navbar() {
               placeholder="Search problems..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-8 pr-3 py-1.5 text-xs rounded-md bg-[#FFFCF5] border border-[#DDD6C8] text-[#20251F] placeholder-[#687066] focus:outline-none focus:border-[#C88719] font-sans transition-colors"
+              className="w-full pl-8 pr-3 py-1.5 text-xs rounded-md bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] placeholder-[#94A3B8] focus:outline-none focus:border-[#2563EB] font-sans transition-colors"
             />
-            <Search className="w-3.5 h-3.5 text-[#687066] absolute left-2.5 top-2.5" />
+            <Search className="w-3.5 h-3.5 text-[#64748B] absolute left-2.5 top-2.5" />
           </form>
 
           {/* Solved Stats Pill */}
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#F1F5F1] border border-[#BAC7BA] text-xs font-mono">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#526B52]" />
-            <span className="text-[#687066]">Solved:</span>
-            <span className="text-[#526B52] font-bold">{solvedCount}</span>
-            <span className="text-[#687066]">/</span>
-            <span className="text-[#687066]">60</span>
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#ECFDF5] border border-[#A7F3D0] text-xs font-mono">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#059669]" />
+            <span className="text-[#64748B]">Solved:</span>
+            <span className="text-[#059669] font-bold">{solvedCount}</span>
+            <span className="text-[#64748B]">/</span>
+            <span className="text-[#64748B]">60</span>
           </div>
         </div>
       </div>

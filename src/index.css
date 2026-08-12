@@ -4,45 +4,58 @@
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Custom Parchment Design System Colors */
-  --color-parchment-bg: #F5F1E8;
-  --color-parchment-surface: #FFFCF5;
-  --color-parchment-alt: #EFE9DD;
-  --color-parchment-border: #DDD6C8;
-  --color-parchment-border-subtle: #E8E2D5;
-  --color-parchment-text: #20251F;
-  --color-parchment-muted: #687066;
+  /* Swiss Modernist Design Tokens */
+  --color-swiss-bg: #F8FAFC;
+  --color-swiss-surface: #FFFFFF;
+  --color-swiss-alt: #F1F5F9;
+  --color-swiss-border: #E2E8F0;
+  --color-swiss-border-strong: #CBD5E1;
+  --color-swiss-text: #0F172A;
+  --color-swiss-muted: #64748B;
 
-  --color-saffron: #C88719;
-  --color-saffron-hover: #B07412;
-  --color-saffron-bg: #FBF5E9;
-  --color-saffron-border: #E8CA94;
+  /* Electric Cobalt Primary */
+  --color-cobalt: #2563EB;
+  --color-cobalt-hover: #1D4ED8;
+  --color-cobalt-bg: #EFF6FF;
+  --color-cobalt-border: #BFDBFE;
 
-  --color-moss: #526B52;
-  --color-moss-hover: #435843;
-  --color-moss-bg: #F1F5F1;
-  --color-moss-border: #BAC7BA;
+  /* Mint Emerald Green (Solved / Success) */
+  --color-mint: #059669;
+  --color-mint-hover: #047857;
+  --color-mint-bg: #ECFDF5;
+  --color-mint-border: #A7F3D0;
 
-  --color-terracotta: #A94F35;
-  --color-terracotta-hover: #8D4029;
-  --color-terracotta-bg: #F9F1EF;
-  --color-terracotta-border: #DFC2B8;
+  /* Amber Gold (Medium / In-Progress) */
+  --color-amber: #D97706;
+  --color-amber-hover: #B45309;
+  --color-amber-bg: #FFFBEB;
+  --color-amber-border: #FDE68A;
+
+  /* Vermilion Coral (Hard / Revision) */
+  --color-vermilion: #E11D48;
+  --color-vermilion-hover: #BE123C;
+  --color-vermilion-bg: #FFF1F2;
+  --color-vermilion-border: #FECDD3;
+
+  /* Header Midnight Graphite */
+  --color-obsidian: #0B0F19;
 }
 
 :root {
-  --bg: #F5F1E8;
-  --surface: #FFFCF5;
-  --surface-alt: #EFE9DD;
-  --text: #20251F;
-  --text-muted: #687066;
-  --accent: #C88719;
-  --accent-hover: #B07412;
-  --success: #526B52;
-  --success-hover: #435843;
-  --danger: #A94F35;
-  --danger-hover: #8D4029;
-  --border: #DDD6C8;
-  --border-subtle: #E8E2D5;
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-alt: #F1F5F9;
+  --text: #0F172A;
+  --text-muted: #64748B;
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+  --success: #059669;
+  --success-hover: #047857;
+  --warning: #D97706;
+  --danger: #E11D48;
+  --danger-hover: #BE123C;
+  --border: #E2E8F0;
+  --border-subtle: #F1F5F9;
 }
 
 @layer base {
@@ -55,23 +68,23 @@
   }
 }
 
-/* Custom Editorial Parchment Scrollbars */
+/* Custom Swiss Scrollbars */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #EFE9DD;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #DDD6C8;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #687066;
+  background: #94A3B8;
 }
 
 /* Code block fonts */

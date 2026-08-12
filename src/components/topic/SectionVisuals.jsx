@@ -5,12 +5,12 @@ import { AsciiDiagram } from '../ui/AsciiDiagram';
 export function SectionVisuals({ visuals }) {
   return (
     <section className="space-y-6 text-left">
-      <div className="border-b border-[#DDD6C8] pb-4">
-        <h2 className="text-xl font-bold text-[#20251F] flex items-center gap-2">
-          <Eye className="w-5 h-5 text-[#C88719]" />
+      <div className="border-b border-[#E2E8F0] pb-4">
+        <h2 className="text-xl font-bold text-[#0F172A] flex items-center gap-2">
+          <Eye className="w-5 h-5 text-[#2563EB]" />
           SECTION 5 — Visual Explanations
         </h2>
-        <p className="text-xs text-[#687066] mt-1">
+        <p className="text-xs text-[#64748B] mt-1">
           Visual memory diagrams, pointer shifts, and sliding window boundaries.
         </p>
       </div>
