@@ -22,9 +22,9 @@ export function TopicPage() {
   if (!topicData) {
     return (
       <div className="p-12 text-center space-y-4">
-        <h2 className="text-2xl font-bold text-[#0F172A]">Topic Not Found</h2>
-        <p className="text-[#64748B] text-sm">The topic "{topicSlug}" is currently under active curriculum curation.</p>
-        <Link to="/" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#2563EB] hover:bg-[#1D4ED8] text-[#FFFFFF] font-mono font-medium text-xs shadow-xs">
+        <h2 className="text-2xl font-bold text-[#0F172A] dark:text-[#F1F5F9]">Topic Not Found</h2>
+        <p className="text-[#64748B] dark:text-[#94A3B8] text-sm">The topic "{topicSlug}" is currently under active curriculum curation.</p>
+        <Link to="/" className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#2563EB] dark:bg-[#3B82F6] hover:bg-[#1D4ED8] dark:hover:bg-[#2563EB] text-[#FFFFFF] font-mono font-medium text-xs shadow-xs">
           <ArrowLeft className="w-4 h-4" /> Back to Curriculum Dashboard
         </Link>
       </div>
@@ -55,45 +55,49 @@ export function TopicPage() {
   return (
     <div className="space-y-10 pb-16">
       {/* Topic Header Hero */}
-      <section className="rounded-md bg-[#FFFFFF] border border-[#E2E8F0] p-6 sm:p-8 text-left space-y-4 shadow-xs">
-        <div className="flex items-center gap-2 text-xs font-mono text-[#64748B]">
-          <Link to="/" className="hover:underline text-[#64748B]">Curriculum</Link>
+      <section className="rounded-md bg-[#FFFFFF] dark:bg-[#151B26] border border-[#E2E8F0] dark:border-[#232D3F] p-6 sm:p-8 text-left space-y-4 shadow-xs transition-colors">
+        <div className="flex items-center gap-2 text-xs font-mono text-[#64748B] dark:text-[#94A3B8]">
+          <Link to="/" className="hover:underline text-[#64748B] dark:text-[#94A3B8]">Curriculum</Link>
           <span>/</span>
-          <span className="text-[#2563EB] font-semibold">{topicData.title}</span>
+          <span className="text-[#2563EB] dark:text-[#60A5FA] font-semibold">{topicData.title}</span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] dark:text-[#F1F5F9] tracking-tight">
               {topicData.title}
             </h1>
-            <p className="text-sm sm:text-base text-[#64748B] mt-2 max-w-3xl leading-relaxed">
+            <p className="text-sm sm:text-base text-[#64748B] dark:text-[#94A3B8] mt-2 max-w-3xl leading-relaxed">
               {topicData.description}
             </p>
           </div>
 
-          <div className="flex items-center gap-4 bg-[#F1F5F9] p-4 rounded-md border border-[#E2E8F0] shrink-0 text-xs font-mono">
+          <div className="flex items-center gap-4 bg-[#F1F5F9] dark:bg-[#1C2433] p-4 rounded-md border border-[#E2E8F0] dark:border-[#232D3F] shrink-0 text-xs font-mono">
             <div>
-              <span className="text-[#64748B] block">ESTIMATED</span>
-              <span className="text-[#0F172A] font-bold text-sm">{topicData.estimatedHours} Hours</span>
+              <span className="text-[#64748B] dark:text-[#94A3B8] block">ESTIMATED</span>
+              <span className="text-[#0F172A] dark:text-[#F1F5F9] font-bold text-sm">{topicData.estimatedHours} Hours</span>
             </div>
-            <div className="border-l border-[#E2E8F0] h-8"></div>
+            <div className="border-l border-[#E2E8F0] dark:border-[#232D3F] h-8"></div>
             <div>
-              <span className="text-[#64748B] block">QUESTIONS</span>
-              <span className="text-[#2563EB] font-bold text-sm">{topicData.questions?.length || 60} Problems</span>
+              <span className="text-[#64748B] dark:text-[#94A3B8] block">QUESTIONS</span>
+              <span className="text-[#2563EB] dark:text-[#60A5FA] font-bold text-sm">{topicData.questions?.length || 60} Problems</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Sticky Section Navigation Toolbar */}
-      <div className="sticky top-16 z-40 bg-[#FFFFFF]/95 backdrop-blur-md py-3 border-b border-[#E2E8F0] -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 overflow-x-auto scrollbar-none">
+      <div className="sticky top-16 z-40 bg-[#FFFFFF]/95 dark:bg-[#151B26]/95 backdrop-blur-md py-3 border-b border-[#E2E8F0] dark:border-[#232D3F] -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 overflow-x-auto scrollbar-none transition-colors">
         <div className="flex items-center gap-2 min-w-max">
           {sectionsNav.map(nav => (
             <button
               key={nav.id}
               onClick={() => scrollToSection(nav.id)}
-              className={`px-3 py-1.5 rounded-md text-xs font-mono font-semibold transition-all cursor-pointer ${activeSection === nav.id ? 'bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE]' : 'bg-[#F1F5F9] text-[#64748B] hover:text-[#0F172A] border border-[#E2E8F0]'}`}
+              className={`px-3 py-1.5 rounded-md text-xs font-mono font-semibold transition-all cursor-pointer ${
+                activeSection === nav.id
+                  ? 'bg-[#EFF6FF] dark:bg-[rgba(59,130,246,0.15)] text-[#2563EB] dark:text-[#60A5FA] border border-[#BFDBFE] dark:border-[rgba(59,130,246,0.35)]'
+                  : 'bg-[#F1F5F9] dark:bg-[#1C2433] text-[#64748B] dark:text-[#94A3B8] hover:text-[#0F172A] dark:hover:text-[#F1F5F9] border border-[#E2E8F0] dark:border-[#232D3F]'
+              }`}
             >
               {nav.label}
             </button>
@@ -146,3 +150,4 @@ export function TopicPage() {
     </div>
   );
 }
+

@@ -1,44 +1,10 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-
-  /* Swiss Modernist Design Tokens */
-  --color-swiss-bg: #F8FAFC;
-  --color-swiss-surface: #FFFFFF;
-  --color-swiss-alt: #F1F5F9;
-  --color-swiss-border: #E2E8F0;
-  --color-swiss-border-strong: #CBD5E1;
-  --color-swiss-text: #0F172A;
-  --color-swiss-muted: #64748B;
-
-  /* Electric Cobalt Primary */
-  --color-cobalt: #2563EB;
-  --color-cobalt-hover: #1D4ED8;
-  --color-cobalt-bg: #EFF6FF;
-  --color-cobalt-border: #BFDBFE;
-
-  /* Mint Emerald Green (Solved / Success) */
-  --color-mint: #059669;
-  --color-mint-hover: #047857;
-  --color-mint-bg: #ECFDF5;
-  --color-mint-border: #A7F3D0;
-
-  /* Amber Gold (Medium / In-Progress) */
-  --color-amber: #D97706;
-  --color-amber-hover: #B45309;
-  --color-amber-bg: #FFFBEB;
-  --color-amber-border: #FDE68A;
-
-  /* Vermilion Coral (Hard / Revision) */
-  --color-vermilion: #E11D48;
-  --color-vermilion-hover: #BE123C;
-  --color-vermilion-bg: #FFF1F2;
-  --color-vermilion-border: #FECDD3;
-
-  /* Header Midnight Graphite */
-  --color-obsidian: #0B0F19;
 }
 
 :root {
@@ -55,7 +21,28 @@
   --danger: #E11D48;
   --danger-hover: #BE123C;
   --border: #E2E8F0;
-  --border-subtle: #F1F5F9;
+  --border-strong: #CBD5E1;
+  --scrollbar-track: #F1F5F9;
+  --scrollbar-thumb: #CBD5E1;
+}
+
+html.dark {
+  --bg: #0B0E14;
+  --surface: #151B26;
+  --surface-alt: #1C2433;
+  --text: #F1F5F9;
+  --text-muted: #94A3B8;
+  --accent: #3B82F6;
+  --accent-hover: #60A5FA;
+  --success: #10B981;
+  --success-hover: #34D399;
+  --warning: #F59E0B;
+  --danger: #F43F5E;
+  --danger-hover: #FB7185;
+  --border: #232D3F;
+  --border-strong: #334155;
+  --scrollbar-track: #151B26;
+  --scrollbar-thumb: #334155;
 }
 
 @layer base {
@@ -65,21 +52,22 @@
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 }
 
-/* Custom Swiss Scrollbars */
+/* Custom Swiss & Dark Tech Scrollbars */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
 }
 
@@ -91,3 +79,4 @@
 code, pre {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
+
